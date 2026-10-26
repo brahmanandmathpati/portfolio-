@@ -1,23 +1,16 @@
-# Design brief: Brahmanand Mathpati portfolio
+# Design brief v2: Brahmanand Mathpati portfolio
 
-**Visitor:** a recruiter with 30 seconds. In that time they should learn: who he is, what roles he wants, 3 proof projects, and how to get the resume.
-**Principles:** 1) Evidence over adjectives: every claim links to a repo, a case study or a certificate. 2) One scan path: hero → projects → skills → contact, nothing competing. 3) Quiet by default: one accent, no blobs, motion only to confirm interaction.
+**Visitor:** a recruiter with 30 seconds. **Mood:** premium, calm, technical. Dark-first, with motion that rewards attention and never gates content.
+**Principles:** 1) Evidence over adjectives. 2) One scan path: intro → hero → projects → skills → journey → contact. 3) Motion confirms and guides, using only transform and opacity.
 
-**Color tokens** (light / dark), all text pairs WCAG AA or better
-`bg #FFFFFF / #0B0D10` · `surface #F5F6F8 / #14171C` · `border #E4E7EC / #262B33`
-`text #0F1115 / #ECEEF1` · `muted #4B5563 / #A1A8B3` · `accent #0F766E / #2DD4BF` (teal; the only color)
+**Tokens** (dark / light): `bg #07090C / #FAFAFB` · `surface #0F1318 / #FFFFFF` · `border #1E242C / #E4E7EC` · `fg #EEF1F5 / #0B0F14` · `muted #9AA4B2 / #4B5563`
+`accent #2DD4BF / #0F766E` (teal, for actions) · `secondary #A78BFA / #6D28D9` (soft violet, for glow and highlights only). All text pairs pass AA.
+**Surfaces:** glass cards (surface at 70%, 14px blur, 1px border, soft shadow) over a faded dotted grid. 12-column grid, max width 1200 px, 16 / 24 px gutters.
 
-**Type:** Space Grotesk (display), Inter (body). Scale 14 / 16 / 18 / 20 / 24 / 32 / 44 / 56 px; body 16/1.6, display tracking -0.02em.
-**Spacing:** 4-pt base: 4, 8, 12, 16, 24, 32, 48, 64, 96. Gutter 16 px mobile, 24 px desktop; max width 1120 px.
+**Type:** Space Grotesk display 72 / 56 / 40 / 28 / 20, tracking -0.03em · Inter body 18 / 16 / 14, line height 1.6.
+**Motion:** intro ≤ 2.5 s, first visit per session only, skippable (button or Esc). Entrances 0.3–0.6 s ease-out, staggered 60 ms. Idle loops 4–12 s. Route changes < 300 ms.
+Tilt, magnetic hover and cursor glow run only with a fine pointer. Everything is off under `prefers-reduced-motion`, and every element keeps its final state in the server-rendered HTML.
 
-**Components:** Header (nav + theme toggle) · Avatar (photo / "BM" fallback) · Button (primary, ghost; 44 px min) · Chip · ProjectCard · SectionHeading · TimelineItem · CertBadge · ContactForm · Footer · CaseStudyLayout.
+**Components:** IntroLoader · HeroPortrait (ring draw, float, conic glow, tilt, shine, parallax chips) · RoleRotator · MagneticButton · Reveal / RevealGroup · TiltCard (lift + spotlight) · Marquee · Counter · Timeline · NavLinks (active-section pill) · ThemeToggle (circular reveal) · ScrollProgress · CursorGlow (lazy) · ContactForm (idle / sending / sent).
 
-**Wireframes**
-```
-DESKTOP  [BM.  Projects Skills Experience Contact  ◐]
-         [ Photo ]  Name / role / value line / [View Projects][Download Resume] / gh in @
-         Featured projects: 2 x 3 cards (image, problem, chips, Live·GitHub·Case study)
-         Skills (5 groups) | Experience timeline | Certifications | Education | Contact + form
-MOBILE   header → photo → intro → buttons (full width) → cards (1 column) → ... → footer
-CASE     /projects/[slug]: title, chips, links → Problem → Data → Approach → Result → Learned → Screenshots
-```
+**Layout:** hero 7 + 5 columns (portrait stacks above on mobile) → stats strip → projects bento (7 + 5, then 4 + 4 + 4) → about → skills bento + marquee → timeline (experience + education) → certifications → contact.

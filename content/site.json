@@ -2,6 +2,9 @@
   "name": "Brahmanand Mathpati",
   "shortName": "BM",
   "role": "Aspiring AI Engineer · Data Science",
+  "roles": ["Data Analyst", "Data Scientist", "AI Engineer"],
+  "heroChips": ["Python", "GenAI", "SQL", "AWS"],
+  "marquee": ["Python", "SQL", "Pandas", "NumPy", "scikit-learn", "XGBoost", "PyTorch", "Gymnasium", "Streamlit", "Plotly", "DuckDB", "Gemini", "Docker", "AWS", "Git", "Jupyter"],
   "valueLine": "Data + AI projects that solve real problems",
   "intro": "Final-year B.Tech CSE (AI) student. I build end-to-end data and ML projects, from messy CSVs and pipelines to models, dashboards and LLM tools, and I document how I validated them.",
   "lookingFor": "Data Analyst, Data Scientist and AI Engineer internships",
@@ -24,6 +27,7 @@
     "school": "MBES College of Engineering, Ambajogai",
     "university": "Dr. Babasaheb Ambedkar Technological University (DBATU)",
     "years": "2023 – 2027",
+    "startYear": 2023,
     "coursework": ["Machine Learning", "Deep Learning", "Data Structures & Algorithms", "NLP", "Computer Vision", "Database Systems", "Linear Algebra & Probability"]
   }
 }

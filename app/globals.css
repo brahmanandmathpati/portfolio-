@@ -3,23 +3,29 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #ffffff;
-  --surface: #f5f6f8;
+  --bg: #fafafb;
+  --surface: #ffffff;
   --border: #e4e7ec;
-  --fg: #0f1115;
+  --fg: #0b0f14;
   --muted: #4b5563;
   --accent: #0f766e;
   --accent-fg: #ffffff;
+  --secondary: #6d28d9;
+  --dot: rgb(15 23 42 / 0.08);
+  --shadow: 0 1px 2px rgb(16 24 40 / 0.04), 0 12px 32px -16px rgb(16 24 40 / 0.18);
 }
 
 .dark {
-  --bg: #0b0d10;
-  --surface: #14171c;
-  --border: #262b33;
-  --fg: #eceef1;
-  --muted: #a1a8b3;
+  --bg: #07090c;
+  --surface: #0f1318;
+  --border: #1e242c;
+  --fg: #eef1f5;
+  --muted: #9aa4b2;
   --accent: #2dd4bf;
   --accent-fg: #04201c;
+  --secondary: #a78bfa;
+  --dot: rgb(255 255 255 / 0.06);
+  --shadow: inset 0 1px 0 rgb(255 255 255 / 0.04), 0 16px 40px -20px rgb(0 0 0 / 0.7);
 }
 
 @theme inline {
@@ -30,8 +36,17 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
+  --color-secondary: var(--secondary);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+}
+
+@utility glass {
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 html {
@@ -45,10 +60,110 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Faded dotted grid behind everything. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 35%, transparent 80%);
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 6px;
+}
+
+/* ---------- Intro loader ---------- */
+/* Shown only when the inline head script adds .intro-play (JS on, first visit, motion allowed).
+   Crawlers and no-JS visitors never see it. The fail-safe hides it if JS never hydrates. */
+.intro-overlay {
+  display: none;
+}
+.intro-play .intro-overlay {
+  display: flex;
+  animation: intro-failsafe 0s linear 6s forwards;
+}
+@keyframes intro-failsafe {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* ---------- Hero portrait ---------- */
+.hero-glow {
+  background: conic-gradient(from 0deg, var(--accent), var(--secondary), transparent 55%, var(--accent));
+  filter: blur(36px);
+  opacity: 0.45;
+  animation: spin 14s linear infinite;
+}
+.hero-float {
+  animation: float 5s ease-in-out infinite;
+}
+.chip-float {
+  animation: float 6s ease-in-out infinite;
+}
+.shine {
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.35) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.9s ease;
+}
+.group:hover .shine {
+  transform: translateX(120%);
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ---------- Cards ---------- */
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(420px circle at var(--spot-x, 50%) var(--spot-y, 50%), color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%);
+}
+.spotlight:hover::after {
+  opacity: 1;
+}
+
+/* ---------- Marquee ---------- */
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Theme toggle: circular reveal via View Transitions ---------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -59,7 +174,21 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .hero-glow,
+  .hero-float,
+  .chip-float,
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-track {
+    flex-wrap: wrap;
+    width: auto;
+  }
+  .marquee-track > [aria-hidden="true"] {
+    display: none;
   }
 }
 
@@ -72,6 +201,9 @@ body {
     --fg: #000000;
     --muted: #333333;
     --accent: #0f766e;
+  }
+  body::before {
+    display: none;
   }
   .no-print {
     display: none !important;
