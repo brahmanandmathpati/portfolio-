@@ -4,7 +4,11 @@ import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { IntroLoader } from "@/components/intro-loader";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { ClientExtras } from "@/components/client-extras";
 import { site } from "@/lib/content";
+import { introHeadScript } from "@/lib/intro";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -30,8 +34,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0d10" },
+    { media: "(prefers-color-scheme: light)", color: "#fafafb" },
+    { media: "(prefers-color-scheme: dark)", color: "#07090c" },
   ],
 };
 
@@ -50,7 +54,14 @@ const personJsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="min-h-dvh font-sans leading-relaxed">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: introHeadScript }} />
+        {/* Without JS, scroll animations never run: show their content in its final state. */}
+        <noscript>
+          <style>{`[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
+      <body className="min-h-dvh overflow-x-clip font-sans leading-relaxed">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-3 focus:text-accent-fg"
@@ -58,8 +69,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <ThemeProvider>
+          <IntroLoader name={site.name} />
+          <ScrollProgress />
+          <ClientExtras />
           <Header />
-          <main id="main">{children}</main>
+          <main id="main" className="relative z-10">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
         <script
