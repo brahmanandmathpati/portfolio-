@@ -1,0 +1,24 @@
+## Problem
+
+TeleConnect loses about a quarter of its customers every year. Management wanted to know who is leaving, what churners have in common, and where the retention budget should go. The deliverable was a **one-page brief for the VP of Customer**, not a predictive model.
+
+## Data
+
+About 7,000 telecom customer records. After cleaning: **6,996 customers, of whom 1,555 churned (22.2%)**.
+
+## Approach
+
+- Cleaned and validated the data, logging each decision.
+- Compared churn rates across contract type, tenure, support calls, price, age, city and plan.
+- Used statistical tests (SciPy) to separate real drivers from noise.
+
+## Result
+
+- **Contract type is the strongest driver:** month-to-month customers churn at **35.7%**, compared with **3.9%** on two-year contracts, roughly a 9× gap.
+- **The first months are the danger zone:** customers with 0–6 months of tenure churn at **46.7%**, compared with 13.6% after 25+ months.
+- **Repeated support calls signal risk:** churn rises from 14.6% at 0 calls to **35.1%** at 3 calls.
+- **Price, age, city and plan are mostly noise:** churn differs by less than 2 points across cities.
+
+## What I learned
+
+<Todo>2–3 sentences, e.g. why a brief beat a model for this audience.</Todo>

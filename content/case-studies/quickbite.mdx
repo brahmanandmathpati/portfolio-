@@ -1,0 +1,23 @@
+## Problem
+
+A food-delivery business needs KPIs it can trust, an early signal for orders likely to be cancelled, and a way for non-technical staff to query the data without writing SQL.
+
+## Data
+
+A **synthetic data generator** produces realistic orders, customers, restaurants and delivery events, including deliberately bad rows, so the pipeline's data-quality handling can be tested.
+
+## Approach
+
+- **Layered DuckDB pipeline:** raw → staging → mart, with tests at each layer and **bad-row quarantine** instead of silently dropping data.
+- **Streamlit KPI dashboard** on top of the mart tables.
+- **Cancellation prediction model** (scikit-learn) trained on mart features.
+- **Read-only Gemini text-to-SQL assistant:** turns plain-English questions into SQL that can only read from the database.
+- Packaged with **Docker Compose** so the whole stack runs with one command.
+
+## Result
+
+<Todo>Add the model's evaluation metric (e.g. ROC-AUC or F1 on the hold-out set), the share of rows quarantined, and one example question the assistant answers.</Todo>
+
+## What I learned
+
+<Todo>2–3 sentences: e.g. why a read-only connection matters for an LLM SQL tool, or what the quarantine layer caught.</Todo>

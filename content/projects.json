@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "self-learning-ai-agent",
+    "title": "Self-Learning AI Agent",
+    "problem": "Most student \"AI agents\" never actually learn. This one improves from reward, and the improvement is measured.",
+    "summary": "Tabular Q-learning on FrozenLake and a from-scratch Deep Q-Network on CartPole, with held-out evaluation, statistical tests, an ablation study and a Streamlit dashboard.",
+    "tags": ["Python", "PyTorch", "Reinforcement Learning", "Gymnasium", "Streamlit"],
+    "context": "Final-year team project",
+    "live": "https://self-learning-ai-agent-final-year-project.streamlit.app/",
+    "github": "https://github.com/brahmanandmathpati/Self-Learning-AI-Agent",
+    "featured": true
+  },
+  {
+    "slug": "quickbite",
+    "title": "QuickBite: Food-Delivery Analytics Platform",
+    "problem": "Turn raw order events into trustworthy KPIs, predict cancellations, and let non-technical users ask questions in plain English.",
+    "summary": "Synthetic data generator, raw → staging → mart DuckDB pipeline with tests and bad-row quarantine, Streamlit KPI dashboard, cancellation model and a read-only Gemini text-to-SQL assistant. Dockerised.",
+    "tags": ["Python", "DuckDB", "scikit-learn", "Streamlit", "Gemini", "Docker"],
+    "context": "Personal project",
+    "live": "",
+    "github": "https://github.com/brahmanandmathpati/QuickBite-food-delivery-platform",
+    "featured": true
+  },
+  {
+    "slug": "system-capacity-analytics",
+    "title": "System Capacity & Care Load Analytics",
+    "problem": "Give administrators an early warning when the care system is close to capacity.",
+    "summary": "Cleans and validates public HHS daily data (2023–2025), engineers 15+ load and pressure KPIs, and backtests Linear Regression, Holt and ARIMA forecasts for 30 / 60 / 90 days.",
+    "tags": ["Python", "Pandas", "Time Series", "ARIMA", "Streamlit", "Plotly"],
+    "context": "Personal project",
+    "live": "",
+    "github": "https://github.com/brahmanandmathpati/System-Capacity-Care-Load-Analytics-for-Unaccompanied-Children-UAC-",
+    "featured": true
+  },
+  {
+    "slug": "teleconnect-churn",
+    "title": "TeleConnect: Customer Churn Analysis",
+    "problem": "Which customers leave, what they have in common, and where the retention budget should go.",
+    "summary": "Statistical analysis of ~7,000 telecom customers, delivered as a one-page brief for the VP of Customer. Month-to-month contracts churn at 35.7% compared with 3.9% for two-year contracts.",
+    "tags": ["Python", "Pandas", "SciPy", "EDA", "Statistics"],
+    "context": "Capstone, Naresh IT",
+    "live": "",
+    "github": "https://github.com/brahmanandmathpati/TeleConnect-Customer-Churn-Analysis",
+    "featured": true
+  },
+  {
+    "slug": "edupro-learner-analytics",
+    "title": "EduPro Learner Analytics",
+    "problem": "Show who EduPro's learners are, using only the data that was actually supplied.",
+    "summary": "Interactive dashboard over the EduPro users roster: age bands, gender composition, filters, free-text search and CSV export. It states its data-coverage limits instead of inventing course metrics.",
+    "tags": ["TypeScript", "React", "Data Analysis", "Dashboard"],
+    "context": "Unified Mentor internship",
+    "live": "",
+    "github": "https://github.com/brahmanandmathpati/Learner-Demographics-and-course-enrollment-behavior-analysis-on-edupro",
+    "featured": true
+  }
+]

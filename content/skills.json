@@ -1,0 +1,7 @@
+[
+  { "group": "Languages", "items": ["Python", "SQL", "Java", "C++"] },
+  { "group": "Data / ML", "items": ["Pandas", "NumPy", "scikit-learn", "XGBoost", "SciPy", "Matplotlib", "Seaborn", "Plotly", "EDA", "Time-series forecasting", "Model evaluation"] },
+  { "group": "GenAI / Agents", "items": ["Reinforcement learning (Q-learning, DQN)", "PyTorch", "LLM APIs (Gemini, Groq, Ollama)", "Prompt engineering", "Text-to-SQL", "Structured output"] },
+  { "group": "Cloud", "items": ["AWS (S3, EC2 basics)", "Docker", "Vercel"] },
+  { "group": "Tools", "items": ["Git & GitHub", "Jupyter", "Streamlit", "DuckDB", "VS Code"] }
+]

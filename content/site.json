@@ -1,0 +1,29 @@
+{
+  "name": "Brahmanand Mathpati",
+  "shortName": "BM",
+  "role": "Aspiring AI Engineer · Data Science",
+  "valueLine": "Data + AI projects that solve real problems",
+  "intro": "Final-year B.Tech CSE (AI) student. I build end-to-end data and ML projects, from messy CSVs and pipelines to models, dashboards and LLM tools, and I document how I validated them.",
+  "lookingFor": "Data Analyst, Data Scientist and AI Engineer internships",
+  "location": "Hyderabad, India",
+  "relocation": "Open to relocate anywhere in India",
+  "url": "https://brahmanand-mathpati.vercel.app",
+  "photo": "/profile/brahmanand.jpg",
+  "resumePdf": "/resume.pdf",
+  "links": {
+    "email": "brahma.mathpati99@gmail.com",
+    "github": "https://github.com/brahmanandmathpati",
+    "linkedin": "https://www.linkedin.com/in/brahmanand-mathpati-b7a0a6334/"
+  },
+  "about": [
+    "I'm in the final year of a B.Tech in Computer Science & Engineering with an AI specialization. Most of my learning happens by shipping projects: I like problems where the data is messy and the answer has to be defended to someone who isn't technical.",
+    "My recent work covers reinforcement learning (a DQN written from scratch), analytics pipelines with tests and data-quality checks, time-series forecasting, and LLM-powered tools such as a read-only text-to-SQL assistant."
+  ],
+  "education": {
+    "degree": "B.Tech, Computer Science & Engineering (AI Specialization)",
+    "school": "MBES College of Engineering, Ambajogai",
+    "university": "Dr. Babasaheb Ambedkar Technological University (DBATU)",
+    "years": "2023 – 2027",
+    "coursework": ["Machine Learning", "Deep Learning", "Data Structures & Algorithms", "NLP", "Computer Vision", "Database Systems", "Linear Algebra & Probability"]
+  }
+}

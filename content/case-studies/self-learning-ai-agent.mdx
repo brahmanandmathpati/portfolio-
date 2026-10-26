@@ -1,0 +1,25 @@
+## Problem
+
+Most student "AI agents" are static: they prompt an LLM with fixed instructions and behave the same on day 1 and day 100. Chat history and better prompts are **not learning**. The goal was an agent whose **policy actually changes from experience**, with proof that it improved.
+
+## Data
+
+There's no fixed dataset. The agent generates its own experience as `(state, action, reward, next_state)` transitions by interacting with two Gymnasium environments: **FrozenLake-v1** (tabular) and **CartPole-v1** (continuous state).
+
+## Approach
+
+- **Tabular Q-learning** on FrozenLake, checked against a worked example done by hand in a unit test.
+- **Deep Q-Network written from scratch in PyTorch** (no Stable-Baselines3): experience replay, a target network, Huber loss and gradient clipping. Truncation at the time limit is treated correctly as non-terminal.
+- **Evaluation protocol:** frozen-policy evaluation (ε = 0), separate training, validation and test seeds, before/after comparison on the same test seeds, comparison with a random baseline (Welch's t-test + bootstrap 95% CI over 5 seeds), and a checkpoint-persistence test.
+- **Ablation:** full DQN vs no replay vs no target network.
+- Runs are tracked in SQLite and shown in a Streamlit dashboard, where an LLM explains the learned behaviour using the logged numbers.
+
+## Result
+
+<Todo>Add the final numbers from runs/sla.db: trained vs random mean return on test seeds, the p-value / CI, and the ablation table.</Todo>
+
+The live dashboard shows the learning curves and the before/after evaluation.
+
+## What I learned
+
+<Todo>Write 2–3 sentences in your own words, e.g. why the truncation-vs-termination detail mattered, or what the ablation showed.</Todo>

@@ -1,0 +1,22 @@
+## Problem
+
+The care program for unaccompanied children publishes daily operational numbers, but raw daily counts don't tell an administrator whether the system is under pressure or how load is likely to change in the coming weeks.
+
+## Data
+
+Public **HHS daily reporting, 2023–2025**: intake, transfers, children in custody and in care, and discharges.
+
+## Approach
+
+- **Validation pipeline:** standardized dates, detected missing calendar days and duplicate dates, and ran logical checks (for example, discharges can't exceed the number of children in care).
+- **15+ engineered KPIs:** total system load, net daily intake, care-load growth rate, 7-day backlog accumulation, volatility, discharge offset ratio and an intake-pressure index.
+- **Forecasting:** backtested Linear Regression, Holt exponential smoothing and ARIMA, then projected 30, 60 and 90 days ahead with confidence bands.
+- **Dashboard:** Streamlit + Plotly, with KPI cards, filters for date range and granularity, auto-generated insights, and recommendations for each audience.
+
+## Result
+
+<Todo>Add the backtest error (e.g. MAPE) for each model and which one you chose.</Todo>
+
+## What I learned
+
+<Todo>2–3 sentences in your own words.</Todo>
