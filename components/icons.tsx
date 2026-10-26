@@ -35,6 +35,31 @@ export function ArrowUpRightIcon({ className = "size-4 shrink-0" }: IconProps) {
   );
 }
 
+export function ArrowRightIcon({ className = "size-4 shrink-0" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path d="M5 12h14m-6-6 6 6-6 6" />
+    </svg>
+  );
+}
+
+export function SendIcon({ className = "size-4 shrink-0" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" aria-hidden="true">
+      <path d="m22 2-7 20-4-9-9-4 20-7z" />
+      <path d="M22 2 11 13" />
+    </svg>
+  );
+}
+
+export function CheckIcon({ className = "size-4 shrink-0" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+      <path d="m5 12 5 5 9-10" />
+    </svg>
+  );
+}
+
 export function DownloadIcon({ className = base }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
