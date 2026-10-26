@@ -16,6 +16,9 @@ next-env.d.ts
 # vercel
 .vercel
 
+# local tooling
+.claude/
+
 # os / editor
 .DS_Store
 Thumbs.db
