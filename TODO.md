@@ -20,8 +20,8 @@
 - [ ] LogisChain, HealthRisk, MatRisk, InfraRisk AI: no public repos found
 
 ## Setup that needs your accounts
-- [ ] GitHub repo `portfolio`: create it, then push (see README)
-- [ ] Vercel ↔ GitHub: add a GitHub Login Connection in Vercel, then `vercel git connect` for auto-deploy on push to `main`
+- [x] GitHub repo: https://github.com/brahmanandmathpati/portfolio- (consider renaming to `portfolio`)
+- [x] Vercel ↔ GitHub: every push to `main` deploys automatically
 - [ ] Contact form: create a Formspree form, set `NEXT_PUBLIC_FORMSPREE_ID` in Vercel
 - [ ] Vercel Analytics: Project → Analytics → Enable
 - [ ] Custom domain `brahmanand.mathpati.dev`: buy `mathpati.dev` first (see below)

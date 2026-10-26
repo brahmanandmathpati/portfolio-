@@ -36,6 +36,14 @@ Before deploying, run `npm run check` (lint + typecheck + build).
 
 ## Deploy
 
+Push to `main`. Vercel builds and deploys automatically:
+
+```bash
+git push
+```
+
+To deploy manually without pushing:
+
 ```bash
 vercel deploy --prod
 ```
