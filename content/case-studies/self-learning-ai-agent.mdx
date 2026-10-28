@@ -16,9 +16,15 @@ There's no fixed dataset. The agent generates its own experience as `(state, act
 
 ## Result
 
-<Todo>Add the final numbers from runs/sla.db: trained vs random mean return on test seeds, the p-value / CI, and the ablation table.</Todo>
+Numbers from the experiment database behind the [live dashboard](https://self-learning-ai-agent-final-year-project.streamlit.app/):
 
-The live dashboard shows the learning curves and the before/after evaluation.
+- **Held-out test score: 500.00.** That's the mean return of the frozen DQN policy (ε = 0) on unseen test seeds for CartPole-v1, seed 4. 500 is the maximum possible, because episodes are capped at 500 steps.
+- **Learning is visible in training itself:** average reward rose from **20.77** over the first 120 episodes to **398.30** over the last 120 of that run. Over its last 50 training episodes (ε > 0, so still exploring), it averaged **394.74**.
+- **Scale:** **36 training runs** (31 completed, 0 failed) and **20,314 episodes** logged across 3 experiments.
+
+<Todo>Add the trained-vs-random comparison (Welch's t-test p-value and bootstrap 95% CI over seeds) and the ablation table (full DQN vs no replay vs no target network) from the Evaluation and Ablation pages.</Todo>
+
+The dashboard shows the learning curves, the frozen-policy validation curve, and the before/after evaluation.
 
 ## What I learned
 
